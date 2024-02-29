@@ -122,7 +122,7 @@
                                     <td class="text-center">
                                         <div class="btn-group">
                                             @if ($k->status_pesanan == 0 && !empty($bayar->bukti_bayar))
-                                                <button class="btn btn-danger btn-sm">No Access 1</button>
+                                                <button class="btn btn-danger btn-sm">No Access</button>
                                             @elseif ($k->status_pesanan == 1)
                                                 <button class="btn btn-danger btn-sm">No Access</button>
                                             @else

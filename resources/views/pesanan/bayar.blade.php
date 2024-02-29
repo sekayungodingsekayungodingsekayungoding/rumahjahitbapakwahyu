@@ -35,7 +35,7 @@
                 <div class="form-group">
                     <select name="metode_bayar" id="metode_bayar" class="form-control" required>
                         <option value="">Pilih Metode Bayar</option>
-                        <option value="Transfer Bank">Transfer Bank - BRI 402801010849535 an. Dewi Septiani</option>
+                        <option value="Transfer Bank">Transfer Bank - BRI 404301020943537 an. Sumarni</option>
                         <option value="Cash Di Tempat">Cash Di Tempat</option>
                     </select>
                 </div>
@@ -66,7 +66,14 @@
     <script>
 
         $(document).ready(function() {
-
+            $("#metode_bayar").on('change', function(){
+                let file = $("#fileUpload1");
+                if($(this).val() == 'Cash Di Tempat') {
+                    file.addClass('d-none')
+                } else {
+                    file.removeClass('d-none')
+                }
+            })
 
             $("#frmizin").submit(function() {
                 var metode_bayar = $("#metode_bayar").val();
