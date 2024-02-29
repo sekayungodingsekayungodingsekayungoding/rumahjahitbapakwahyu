@@ -39,6 +39,16 @@
                         </div>
                         <div class="item-menu text-center">
                             <div class="menu-icon">
+                                <a href="#" data-toggle="modal" data-target="#modal-daftar-jahit" class="green" style="font-size: 40px;">
+                                    <ion-icon name="person-sharp"></ion-icon>
+                                </a>
+                            </div>
+                            <div class="menu-name">
+                                <span class="text-center">Daftar Jahitan</span>
+                            </div>
+                        </div>
+                        <div class="item-menu text-center">
+                            <div class="menu-icon">
                                 <a href="/req" class="danger" style="font-size: 40px;">
                                     <ion-icon name="archive-outline"></ion-icon>
                                 </a>
@@ -84,39 +94,7 @@
         <div class="section mt-2" id="presence-section">
             <div class="todaypresence">
                 <div class="row">
-                    <div class="col-12">
-                        <form action="/dashboard" method="GET">
-                            <div class="row">
-                                <div class="col-4">
-                                    <div class="form-group">
-                                        <input type="text" name="jenis_jahitan" class="form-control" value="{{ Request('jenis_jahitan') }}" placeholder="Jenis Jahitan">
-                                    </div>
-                                </div>
-                                <div class="col-2">
-                                    <div class="form-group">
-                                        <button class="btn btn-primary">Cari</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="col-12">
-                        <div class="table-responsive">
-                            <table class="table table-striped">
-                                <tr>
-                                    <th>Jenis Jahitan</th>
-                                    <th>Harga</th>
-                                </tr>
-                                @foreach ($jenis as $j)
-                                    <tr>
-                                        <td>{{ $j->jenis_jahitan }}</td>
-                                        <td>{{ currency_IDR($j->harga) }}</td>
-                                    </tr>
-                                @endforeach
-                            </table>
-                        </div><br>
-                        {{ $jenis->links('vendor.pagination.bootstrap-4') }}
-                    </div>
+                    
                 </div>
             </div>
 
@@ -203,6 +181,6 @@
                 </div>
             </div>
         </div>
-
+        @include('dashboard.modal-daftar-jahit')
 @endsection
 

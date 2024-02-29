@@ -107,7 +107,7 @@
                                                     </td>
                                                     <td class="text-center">
                                                         <div class="btn-group">
-                                                        <form action="/pesanan/{{ $k->pesanan_id }}/delete" method="POST" style="margin-left: 5px;">
+                                                        <form action="/pesanan/{{ $k->pesanan_id }}/delete" class="d-flex" method="POST" style="margin-left: 5px;">
                                                             @csrf
                                                             <a class="btn btn-danger btn-sm btnEdit">
                                                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-eraser" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">

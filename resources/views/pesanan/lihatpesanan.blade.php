@@ -126,9 +126,9 @@
                                             @elseif ($k->status_pesanan == 1)
                                                 <button class="btn btn-danger btn-sm">No Access</button>
                                             @else
-                                                <form action="/pesanan/{{ $k->pesanan_id }}/deleteS" method="POST" style="margin-left: 5px;">
+                                                <form action="/pesanan/{{ $k->pesanan_id }}/deleteS" class="d-flex" method="POST" style="margin-left: 5px;">
                                                     @csrf
-                                                    <a class="btn btn-danger btn-sm btnEdit">
+                                                    <a class="btn btn-danger btn-sm btnEdit" style="margin-right:4px">
                                                         <ion-icon name="trash-outline"></ion-icon>
                                                     </a>
                                                     <a href="/editpesan/{{ $k->pesanan_id }}" class="btn btn-warning btn-sm">
