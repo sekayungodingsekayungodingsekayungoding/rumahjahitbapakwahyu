@@ -145,7 +145,7 @@
                                         <div class="icon-box bg-primary">
                                             @if (!empty(Auth::guard()->user()->foto_pelanggan))
                                             @php
-                                                $path = Storage::url('public/uploads/pelanggan/'.Auth::guard('buy')->user()->foto_pelanggan);
+                                                $path = '/storage/uploads/pelanggan/'.Auth::guard('buy')->user()->foto_pelanggan;
                                             @endphp
                                             <img src="{{ url($path) }}" alt="avatar" class="imaged w32 rounded" width="30px" height="30px">
                                             @else
@@ -172,7 +172,7 @@
                                         <div class="icon-box bg-primary">
                                             @if (!empty($p->foto_pelanggan))
                                             @php
-                                                $path = Storage::url('public/uploads/pelanggan/'.$p->foto_pelanggan);
+                                                $path ='/storage/uploads/pelanggan/'.$p->foto_pelanggan;
                                             @endphp
                                             <img src="{{ url($path) }}" alt="avatar" class="imaged w32 rounded" width="30px" height="30px">
                                             @else

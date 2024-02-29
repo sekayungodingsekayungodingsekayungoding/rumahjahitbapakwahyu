@@ -69,14 +69,14 @@
                                     if ($bayar ==null) {
                                         $path = null;
                                     }else {
-                                        $path = Storage::url('uploads/bukti_bayar/'.$bayar->bukti_bayar);
+                                        $path = 'storage/uploads/bukti_bayar/'.$bayar->bukti_bayar;
                                     }
                                     
                                     $desain = DB::table('tb_desain')->where('pesanan_id', $k->pesanan_id)->first();
                                     if ($desain ==null) {
                                         $path1 = null;
                                     }else {
-                                        $path1 = Storage::url('uploads/desain/'.$desain->file_desain);
+                                        $path1 = 'storage/uploads/bukti_bayar/'.$desain->file_desain;
                                     }
                                 ?>
                                 <tr>
