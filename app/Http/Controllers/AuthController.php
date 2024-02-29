@@ -16,7 +16,7 @@ class AuthController extends Controller
        ])) {
            return redirect('/dashboard');
        }else{
-           return redirect('/')->with(['warning' => 'NIK / Password Salah !!']);
+           return redirect('/')->with(['warning' => 'Username / Password Salah !!']);
        }
     }
 
