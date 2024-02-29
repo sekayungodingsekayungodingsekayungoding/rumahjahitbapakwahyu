@@ -53,7 +53,7 @@ class PembayaranController extends Controller
                 $folderPath = "public/uploads/bukti_bayar/";
                 $request->file('bukti_bayar')->storeAs($folderPath, $bukti_bayar);
             }
-            return Redirect('/metodebayar')->with(['success' => 'Data Berhasil Di Simpan!!']);
+            return Redirect('/metodebayar')->with(['success' => 'Data Berhasil Di Simpan, Silahkan Add Desain!', 'pesanan_id' => $pesanan_id]);
         }
         } catch (\Exception $e) {
             if($e->getCode()==23000){

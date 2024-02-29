@@ -1,6 +1,5 @@
 @extends('layout.presensi');
 @section('header')
-
     <div class="appHeader bg-primary text-light">
         <div class="left">
             <a href="javascript:;" class="headerButton goBacc">
@@ -21,6 +20,8 @@
 @endsection
 
 @section('content')
+
+
 
 <div class="row" style="margin-top: 3rem;">
     <div class="col">
@@ -167,7 +168,6 @@
     </a>
 </div>
 @foreach ($mypes as $k)
-
 <div class="modal fade" id="addDesain{{ $k->pesanan_id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
@@ -195,13 +195,23 @@
       </div>
     </div>
 </div>
+
     
 @endforeach
+
 
 @endsection
 
 @push('myscript')
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+<div id="pesanan_id" data-pesanan="{{session('pesanan_id')}}"></div>
 
+<script>
+    let pesanan = $("#pesanan_id").attr("data-pesanan");
+         if (pesanan != '') {
+            $("#addDesain{{session('pesanan_id')}}").modal("show")
+         }
+</script>
 <script>
     $(function(){
         $(".btnEdit").click(function(e){
@@ -232,7 +242,6 @@
                     return false;
                 }
         });
-
     });
 
 

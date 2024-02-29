@@ -40,7 +40,7 @@
                         <div class="item-menu text-center">
                             <div class="menu-icon">
                                 <a href="#" data-toggle="modal" data-target="#modal-daftar-jahit" class="green" style="font-size: 40px;">
-                                    <ion-icon name="person-sharp"></ion-icon>
+                                    <ion-icon name="list-outline"></ion-icon>
                                 </a>
                             </div>
                             <div class="menu-name">

@@ -1,8 +1,8 @@
 <div class="modal modal-blur fade" id="modal-daftar-jahit" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
     <div class="modal-content">
-        <div class="modal-header">
-        <h5 class="modal-title">Daftar Jahitan</h5>
+        <div class="modal-header" style="background-color:#0000ff ">
+        <h5 class="modal-title text-white">Daftar Jahitan</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>

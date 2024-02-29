@@ -17,6 +17,9 @@
     <link rel="icon" type="image/png" href="{{ asset('assets/img/favicon.png') }}" sizes="32x32">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/img/icon/192x192.png') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <script src="/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="/sweetalert2.min.css">
+    <script src="/sweetalert2.all.min.js"></script>
     <link rel="manifest" href="__manifest.json">
 
     <style>

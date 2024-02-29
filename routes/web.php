@@ -63,6 +63,7 @@ Route::middleware(['auth:buy'])->group(function(){
     Route::post('/pembayaran/{pembayaran_id}/deleteS', [PembayaranController::class, 'deleteS']);
     // pesanan
     Route::get('/lihatpesanan', [PesananController::class, 'lihatpesanan']);
+    Route::get('/lihatpesanan/{pesanan_id}', [PesananController::class, 'lihatpesananAddDesain']);
     Route::get('/editpesan/{pesanan_id}', [PesananController::class, 'editpesan']);
     Route::post('/pesanan/{pesanan_id}/deleteS', [PesananController::class, 'deleteS']);
     //rate

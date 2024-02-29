@@ -21,7 +21,21 @@
 @endsection
 
 @section('content')
+<div id="sweetalert" data-pesan="{{session('success')}}"></div>
+<div id="pesanan" data-pesanan="{{session('pesanan_id')}}"></div>
 
+<script>
+    let flashData = $("#sweetalert").attr("data-pesan");
+    let pesanan = $("#pesanan").attr("data-pesanan");
+         if (flashData != '') {
+            Swal.fire({
+                icon: "success",
+                title: "Good Job",
+                text: flashData,
+                footer: '<a href="/lihatpesanan/'+pesanan+'">Klik Disini Untuk Add Desain!</a>'
+            });
+         }
+</script>
 <div class="row" style="margin-top: 3rem;">
     <div class="col">
     @php
