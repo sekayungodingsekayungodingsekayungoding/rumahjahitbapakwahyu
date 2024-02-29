@@ -69,14 +69,14 @@
                                     if ($bayar ==null) {
                                         $path = null;
                                     }else {
-                                        $path = 'storage/uploads/bukti_bayar/'.$bayar->bukti_bayar;
+                                        $path = Storage::url('uploads/bukti_bayar/'.$bayar->bukti_bayar);
                                     }
                                     
                                     $desain = DB::table('tb_desain')->where('pesanan_id', $k->pesanan_id)->first();
                                     if ($desain ==null) {
                                         $path1 = null;
                                     }else {
-                                        $path1 = 'storage/uploads/bukti_bayar/'.$desain->file_desain;
+                                        $path1 = Storage::url('uploads/desain/'.$desain->file_desain);
                                     }
                                 ?>
                                 <tr>
@@ -122,7 +122,7 @@
                                     <td class="text-center">
                                         <div class="btn-group">
                                             @if ($k->status_pesanan == 0 && !empty($bayar->bukti_bayar))
-                                                <button class="btn btn-danger btn-sm">No Access</button>
+                                                <button class="btn btn-danger btn-sm">No Accesss</button>
                                             @elseif ($k->status_pesanan == 1)
                                                 <button class="btn btn-danger btn-sm">No Access</button>
                                             @else

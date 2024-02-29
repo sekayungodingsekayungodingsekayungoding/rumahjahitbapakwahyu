@@ -172,7 +172,7 @@
                                         <div class="icon-box bg-primary">
                                             @if (!empty($p->foto_pelanggan))
                                             @php
-                                                $path ='/storage/uploads/pelanggan/'.$p->foto_pelanggan;
+                                                $path = Storage::url('public/uploads/pelanggan/'.$p->foto_pelanggan);
                                             @endphp
                                             <img src="{{ url($path) }}" alt="avatar" class="imaged w32 rounded" width="30px" height="30px">
                                             @else
