@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bahan;
 use App\Models\Pesanan;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Redirect;
 
 class PesananController extends Controller
 {
@@ -156,12 +157,13 @@ class PesananController extends Controller
 
     public function editpesan($pesanan_id)
     {
-        $pesan = DB::table('tb_pesanan')
-        ->leftJoin('tb_jenis', 'tb_pesanan.jenis_id', '=', 'tb_jenis.jenis_id')
+        $pesan = DB::table('tb_pesanan as a')
+        ->leftJoin('tb_jenis as b', 'a.jenis_id', '=', 'b.jenis_id')
+        // ->leftJoin('tb_bahan as c', 'a.bahan', '=', 'c.bahan_id')
         ->where('pesanan_id', $pesanan_id)->first();
-        $jenis = DB::table('tb_jenis')->get();
-
-        return view('pesanan.editpesan', compact('pesan', 'jenis'));
+        $jenis = DB::table('tb_jenis as a')->get();
+        $bahan = Bahan::all();
+        return view('pesanan.editpesan', compact('pesan', 'jenis', 'bahan'));
     }
 
     public function addDesain($pesanan_id,Request $request)

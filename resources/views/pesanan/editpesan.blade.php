@@ -33,9 +33,8 @@
                 </div>
                 <div class="form-group">
                     <select name="jenis_id" id="jenis_id" class="form-control">
-                        <option value="{{ $pesan->jenis_id }}">{{ $pesan->jenis_jahitan }}</option>
                         @foreach ($jenis as $j)
-                            <option value="{{ $j->jenis_id }}">{{ $j->jenis_jahitan }}</option>
+                            <option value="{{ $j->jenis_id }}" {{$pesan->jenis_id == $j->jenis_id ? 'selected' : ''}}>{{ $j->jenis_jahitan }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -44,9 +43,8 @@
                 </div>
                 <div class="form-group">
                 <select name="bahan" id="bahan" class="form-control">
-                        <option value="{{ $pesan->bahan_id }}">{{ $pesan->bahan }}</option>
-                        @foreach ($jenis as $j)
-                            <option value="{{ $j->bahan_id }}">{{ $j->bahan }}</option>
+                        @foreach ($bahan as $b)
+                            <option value="{{ $b->bahan_id }}" {{ ($pesan->bahan == $b->bahan_id ? 'selected' : '') }}>{{ $b->bahan }}</option>
                         @endforeach
                     </select>
                 </div>
