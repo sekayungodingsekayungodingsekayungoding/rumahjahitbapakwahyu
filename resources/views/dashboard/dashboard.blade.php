@@ -133,8 +133,16 @@
                                         <div class="form-group">
                                             <div>{{ $p->nama_pelanggan }}</div>
                                             <span class="badge badge-warning">{{ $p->jenis_jahitan }}</span>
-                                            <span class="badge badge-danger">{{ $p->status_pesanan == 0 ? 'Not Verified' : ''}}</span>
-                                            <span class="badge badge-danger">{{ $p->tgl_kirim == null ? 'On progress' : ''}}</span>
+                                            @if ($p->tgl_kirim == null && $p->status_pesanan == 0)
+                                            <span class="badge badge-danger">Not Verified</span>
+                                            <span class="badge badge-danger">Menunggu</span>
+                                            @elseif($p->tgl_kirim != null && $p->status_pesanan == 0)
+                                            <span class="badge badge-success">Verified</span>
+                                            <span class="badge badge-info">On Progress</span>
+                                            @elseif($p->tgl_kirim != null && $p->status_pesanan == 1)
+                                            <span class="badge badge-success">Verified</span>
+                                            <span class="badge badge-success">Paket Telah Dikirim</span>
+                                            @endif
                                         </div>
                                     </div>
                                 </li>
@@ -160,15 +168,15 @@
                                         <div class="form-group">
                                             <div>{{ $p->nama_pelanggan }}</div>
                                             <span class="badge badge-warning">{{ $p->jenis_jahitan }}</span>
-                                            @if ($p->status_pesanan == 0)
+                                            @if ($p->tgl_kirim == null && $p->status_pesanan == 0)
                                             <span class="badge badge-danger">Not Verified</span>
-                                            @else
-                                            <span class="badge badge-success"> Verified</span>
-                                            @endif
-                                            @if ($p->tgl_kirim == null)
-                                            <span class="badge badge-danger">On progress</span>
-                                            @else
-                                            <span class="badge badge-success">Paket telah dikirim</span>
+                                            <span class="badge badge-danger">Menunggu</span>
+                                            @elseif($p->tgl_kirim != null && $p->status_pesanan == 0)
+                                            <span class="badge badge-success">Verified</span>
+                                            <span class="badge badge-info">On Progress</span>
+                                            @elseif($p->tgl_kirim != null && $p->status_pesanan == 1)
+                                            <span class="badge badge-success">Verified</span>
+                                            <span class="badge badge-success">Paket Telah Dikirim</span>
                                             @endif
                                         </div>
                                     </div>

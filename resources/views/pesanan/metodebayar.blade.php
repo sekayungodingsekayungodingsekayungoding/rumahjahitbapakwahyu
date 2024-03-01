@@ -61,15 +61,17 @@
             <div class="card-body">
                 <div class="col-12">
                     <div class="row">
-                        <div class="col-4"></div>
-                        <div class="col-6"></div>
-                        <div class="col-2">
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-6"></div>
+                        <div class="col-sm-2">
                             <form action="/cetak" method="get">
-                                <select name="metode_bayar" id="metode_bayar" >
-                                    <option value="Transfer Bank">TF</option>
-                                    <option value="Cash Di Tempat">COD</option>
-                                </select>
-                                <button class="btn btn-danger">Cetak</button>
+                                <div class="form-group d-flex">
+                                    <select name="metode_bayar" id="metode_bayar" class="form-control mr-1" style="width:50px">
+                                        <option value="Transfer Bank">TF</option>
+                                        <option value="Cash Di Tempat">COD</option>
+                                    </select>
+                                    <button class="btn btn-danger">Cetak</button>
+                                </div>
                             </form>
                         </div>
                     </div>

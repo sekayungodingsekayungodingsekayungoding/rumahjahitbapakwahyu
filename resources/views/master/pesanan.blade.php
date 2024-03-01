@@ -99,10 +99,12 @@
                                                         @endif
                                                     </td>
                                                     <td class="text-center">
-                                                        @if ($k->status_pesanan == 0)
+                                                        @if ($k->status_pesanan == 0 & $k->tgl_kirim == null)
                                                             <button class="btn btn-danger btn-sm">Not Verified</button>
-                                                        @else
-                                                            <button class="btn btn-success btn-sm"> Verified</button>
+                                                        @elseif($k->status_pesanan == 0 & $k->tgl_kirim != null)
+                                                            <button class="btn btn-info btn-sm">On Progress</button>
+                                                        @elseif($k->status_pesanan == 1 & $k->tgl_kirim != null)
+                                                            <button class="btn btn-success btn-sm">Verified</button>
                                                         @endif
                                                     </td>
                                                     <td class="text-center">

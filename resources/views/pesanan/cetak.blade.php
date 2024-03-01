@@ -55,7 +55,9 @@
 
     <table style="width: 100%;">
         <tr>
-            <td style="width: 30px;"><img src="{{ asset('assets/img/icon/i.png') }}" width="100px" height="100px" alt=""></td>
+            <td style="width: 30px;">
+              <img src="{{ asset('assets/img/icon/i.png') }}" width="100px" height="100px" alt="">
+            </td>
             <td><span id="h3">
                 CETAK STRUK <br>
                 CV. RUMAH JAHIT BAPAK WAHYU<br>
@@ -75,7 +77,11 @@
               @php
                   $path = Storage::url('uploads/pelanggan/'.$karyawan->foto_pelanggan);
               @endphp
+              @if(auth()->user()->foto_pelanggan != null)
               <img src="{{ url($path) }}" alt="" width="50px" height="75px">
+              @else
+              <img src="/assets/img/user.jpg" width="100px" height="100px" alt="">
+              @endif
           </td>
       </tr>
       <tr>

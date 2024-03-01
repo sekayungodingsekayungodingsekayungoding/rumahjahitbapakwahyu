@@ -93,10 +93,12 @@
                                     <td class="text-center">{{ $k->jumlah }}</td>
                                     <td class="text-center">{{ $k->bahan }}</td>
                                     <td class="text-center">
-                                        @if ($k->status_pesanan == 0)
+                                        @if ($k->status_pesanan == 0 & $k->tgl_kirim == null)
                                             <button class="btn btn-danger btn-sm">Not Verified</button>
-                                        @else
-                                            <button class="btn btn-success btn-sm"> Verified</button>
+                                        @elseif($k->status_pesanan == 0 & $k->tgl_kirim != null)
+                                            <button class="btn btn-info btn-sm">On Progress</button>
+                                        @elseif($k->status_pesanan == 1 & $k->tgl_kirim != null)
+                                            <button class="btn btn-success btn-sm">Verified</button>
                                         @endif
                                     </td>
                                     <td class="text-center">
@@ -143,9 +145,9 @@
                                                 </form>
                                             @endif 
                                             &nbsp;
-                                            <a href="#" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addDesain{{ $k->pesanan_id }}">
+                                            {{-- <a href="#" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addDesain{{ $k->pesanan_id }}">
                                                 <ion-icon name="add-outline"></ion-icon>
-                                            </a>
+                                            </a> --}}
                                             &nbsp;
                                             <a href="/metodebayar" class="btn btn-primary btn-sm">
                                                 <ion-icon name="wallet-outline"></ion-icon>

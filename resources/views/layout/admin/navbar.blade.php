@@ -85,3 +85,6 @@
           </div>
         </div>
       </header>
+      <script>
+        document.querySelector('span[class="avatar avatar-sm"]').style.backgroundImage = "url('/assets/img/sample/avatar/avatar1.jpg' })";
+      </script>
