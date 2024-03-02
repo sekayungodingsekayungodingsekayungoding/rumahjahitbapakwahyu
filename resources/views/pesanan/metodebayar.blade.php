@@ -25,6 +25,7 @@
 <div id="pesanan" data-pesanan="{{session('pesanan_id')}}"></div>
 
 <script>
+   ;
     let flashData = $("#sweetalert").attr("data-pesan");
     let pesanan = $("#pesanan").attr("data-pesanan");
          if (flashData != '') {
@@ -32,6 +33,7 @@
                 icon: "success",
                 title: "Good Job",
                 text: flashData,
+                showConfirmButton: false,
                 footer: '<a href="/lihatpesanan/'+pesanan+'">Klik Disini Untuk Add Desain!</a>'
             });
          }
