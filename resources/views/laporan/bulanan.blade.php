@@ -8,7 +8,7 @@
         <div class="col">
         <!-- Page pre-title -->
         <h2 class="page-title">
-            Laporan Presensi
+            Laporan Bulanan
         </h2>
         </div>
         <!-- Page title actions -->
