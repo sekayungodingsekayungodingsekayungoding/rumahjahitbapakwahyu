@@ -263,13 +263,15 @@ class PesananController extends Controller
         $bulan = $request->bulan;
         $tahun = $request->tahun;
         $query = Pesanan::query();
-        $query->select('tb_pesanan.*', 'nama_pelanggan', 'jenis_jahitan');
+        $query->select('tb_pesanan.*', 'nama_pelanggan', 'jenis_jahitan', 'total_bayar');
         $query->join('tb_pelanggan', 'tb_pesanan.pelanggan_id', '=', 'tb_pelanggan.pelanggan_id');
         $query->join('tb_jenis', 'tb_pesanan.jenis_id', '=', 'tb_jenis.jenis_id');
+        $query->join('tb_pembayaran', 'tb_pesanan.pesanan_id', '=', 'tb_pembayaran.pesanan_id');
         $query->whereRaw('MONTH(tgl_pemesanan)="'.$bulan.'"');
         $query->whereRaw('YEAR(tgl_pemesanan)="'.$tahun.'"');
         $query->where('status_pesanan', 1);
         $mypes = $query->get();
+       
         if(isset($_POST['excel'])){
             $time = date("d-M-Y H:i:s");
 

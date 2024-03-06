@@ -49,6 +49,7 @@ Route::middleware(['auth:buy'])->group(function(){
 
     //pesan jahit
     Route::get('/jahit/pesan', [PelangganController::class, 'pesan']);
+    // 1. post = method 2. /addPesanan = url 3. PesananController = merupakan Controller dimana url terkait akan di tangani 4. addPesanan = method yang dimiliki oleh Contoller Pesanan
     Route::post('/addPesanan', [PesananController::class, 'addPesanan']);
     Route::post('/pesanan/{pesanan_id}/edit', [PesananController::class, 'editPesanan']);
     Route::post('/pesanan/{pesanan_id}/delete', [PesananController::class, 'delete']);
