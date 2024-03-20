@@ -22,8 +22,10 @@ class PesananController extends Controller
             $query->where('no_antrian', 'like', '%'. $request->no_antrian.'%');
         }
         $pesanan = $query->paginate(25);
+        $cek_antrian = Pesanan::whereNull('tgl_kirim')->orderBy('pesanan_id', 'ASC')->first();
 
-        return view('master.pesanan', compact('pesanan'));
+        return view('master.pesanan', compact('pesanan', 'cek_antrian'));
+        
     }
 
     public function addPesanan(Request $request)

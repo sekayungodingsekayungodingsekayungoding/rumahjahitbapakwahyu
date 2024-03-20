@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Harga;
+use App\Models\Pesanan;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
@@ -28,8 +29,10 @@ class DashboardController extends Controller
         ->join('tb_pelanggan', 'tb_pesanan.pelanggan_id', '=', 'tb_pelanggan.pelanggan_id')
         ->join('tb_jenis', 'tb_pesanan.jenis_id', '=', 'tb_jenis.jenis_id')
         ->get();
+        $waiting = new Pesanan();
 
-        return view('dashboard.dashboard', compact('jenis', 'mypes', 'pes'));
+
+        return view('dashboard.dashboard', compact('jenis', 'mypes', 'pes', 'waiting'));
     }
 
     public function dashboardadmin()

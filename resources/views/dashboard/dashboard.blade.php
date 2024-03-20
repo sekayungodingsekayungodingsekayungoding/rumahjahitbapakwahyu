@@ -117,7 +117,13 @@
                 <div class="tab-content mt-2" style="margin-bottom:100px;">
                     <div class="tab-pane fade show active" id="home" role="tabpanel">
                         <ul class="listview image-listview">
-                            @foreach ($mypes as $p)
+                            @php
+                                $i=1;
+                            @endphp
+                            @foreach ($mypes as $index => $p)
+                                @php
+                                    $waiting.$i = $waiting->waiting($p->pesanan_id);
+                                @endphp
                                 <li>
                                     <div class="item">
                                         <div class="icon-box bg-primary">
@@ -128,14 +134,15 @@
                                             <img src="{{ url($path) }}" alt="avatar" class="imaged w32 rounded" width="30px" height="30px">
                                             @else
                                             <img src="{{ asset('assets/img/sample/avatar/avatar1.jpg') }}" alt="avatar" class="imaged w32 rounded" style="height: 40px;">
-                                            @endif 
+                                            @endif
                                         </div>
                                         <div class="form-group">
                                             <div>{{ $p->nama_pelanggan }}</div>
                                             <span class="badge badge-warning">{{ $p->jenis_jahitan }}</span>
                                             @if ($p->tgl_kirim == null && $p->status_pesanan == 0)
                                             <span class="badge badge-danger">Not Verified</span>
-                                            <span class="badge badge-danger">Menunggu</span>
+                                            <span class="badge badge-info">No Antrian: {{ $p->no_antrian }}</span>
+                                            <span class="badge badge-info" class="span-menunggu">Menunggu:&nbsp; <span class="array">{{ $waiting.$i++ }}</span>&nbsp; Pesanan</span>
                                             @elseif($p->tgl_kirim != null && $p->status_pesanan == 0)
                                             <span class="badge badge-success">Verified</span>
                                             <span class="badge badge-info">On Progress</span>
@@ -143,10 +150,21 @@
                                             <span class="badge badge-success">Verified</span>
                                             <span class="badge badge-success">Paket Telah Dikirim</span>
                                             @endif
+                                            
                                         </div>
                                     </div>
                                 </li>
                             @endforeach
+                            <script>
+                                let array = document.querySelectorAll('.array')
+                                array.forEach((a) => {
+                                    let split = a.innerHTML.split('[]')
+                                    a.innerHTML = split[1]
+                                    if(split[1] == '0') {
+                                        a.parentElement.innerHTML = `Pesanan Menunggu Di Proses`
+                                    }
+                                })
+                            </script>
                         </ul>
                     </div>
                     <div class="tab-pane fade" id="profile" role="tabpanel">
