@@ -30,7 +30,7 @@ class PesananController extends Controller
 
     public function addPesanan(Request $request)
     {
-        $cek = Pesanan::where('pesanan_id', 'DESC')->first();
+        $cek = Pesanan::orderBy('pesanan_id', 'DESC')->first();
         if($cek)
         {
             $no_antrian = $cek->no_antrian + 1;
