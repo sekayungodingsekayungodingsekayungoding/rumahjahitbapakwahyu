@@ -30,6 +30,13 @@ class PesananController extends Controller
 
     public function addPesanan(Request $request)
     {
+        $cek = Pesanan::latest()->first();
+        if($cek)
+        {
+            $no_antrian = $cek->no_antrian + 1;
+        } else {
+            $no_antrian = 1;
+        }
         $pelanggan_id       = Auth::guard('buy')->user()->pelanggan_id;
         $pesanan_id         = date('dmyHis').$pelanggan_id;
         $jenis_id           = $request->jenis_id;
@@ -49,6 +56,7 @@ class PesananController extends Controller
                 'ukuran'               => $ukuran,
                 'status_pesanan'       => $status_pesanan,
                 'pesanan_id'           => $pesanan_id,
+                'no_antrian'           => $no_antrian,
                 'tgl_pemesanan'        => $tgl_pemesanan,
                 'tgl_kirim'            => $tgl_kirim,
             ];
