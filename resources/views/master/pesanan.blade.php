@@ -118,7 +118,7 @@
                                                             <path d="M18 13.3l-6.3 -6.3"></path>
                                                             </svg>Hapus
                                                             </a>
-                                                            @if($k->pesanan_id == $cek_antrian->pesanan_id)
+                                                            @if($k->pesanan_id == $cek_antrian->pesanan_id || $notNull->cekNotNull($k->pesanan_id))
                                                             <a href="#" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editpesanan{{ $k->pesanan_id }}">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>

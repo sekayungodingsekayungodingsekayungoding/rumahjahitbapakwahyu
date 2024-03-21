@@ -35,4 +35,9 @@ class Pesanan extends Model
     
         return $hasil;
     }
+
+    public function cekNotNull($pesanan_id)
+    {
+        return DB::table($this->table)->whereNotNull('tgl_kirim')->where('pesanan_id', $pesanan_id)->first();
+    }
 }

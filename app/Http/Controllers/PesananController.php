@@ -23,8 +23,9 @@ class PesananController extends Controller
         }
         $pesanan = $query->paginate(25);
         $cek_antrian = Pesanan::whereNull('tgl_kirim')->orderBy('pesanan_id', 'ASC')->first();
-
-        return view('master.pesanan', compact('pesanan', 'cek_antrian'));
+        $notNull = new Pesanan(); 
+        
+        return view('master.pesanan', compact('pesanan', 'cek_antrian', 'notNull'));
         
     }
 
