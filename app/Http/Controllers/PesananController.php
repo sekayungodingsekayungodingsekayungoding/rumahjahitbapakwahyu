@@ -147,7 +147,7 @@ class PesananController extends Controller
                 'status_pesanan'       => $status_pesanan,
                 'tgl_kirim'            => $tgl_kirim,
             ];
-            dd($status_pesanan);
+            dd($status_pesanan == 1);
             if($status_pesanan == 1){
                 $data['no_antrian'] = 0;
                 $cek = Pesanan::where('pesanan_id', '>', $pesanan_id)->get();
