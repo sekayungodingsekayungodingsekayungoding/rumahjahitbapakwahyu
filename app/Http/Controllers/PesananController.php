@@ -149,9 +149,9 @@ class PesananController extends Controller
             ];
             if($status_pesanan == 1){
                 $data['no_antrian'] = 0;
-                $cek = Pesanan::where('pesanan_id', '>', $pesanan_id)->get();
+                $cek = DB::table('tb_pesanan')->where('pesanan_id', '>', $pesanan_id)->get();
                 foreach($cek as $row){
-                    Pesanan::where('pesanan_id', $row->pesanan_id)->update(['no_antrian' => $row->no_antrian -1]);
+                    DB::table('tb_pesanan')->where('pesanan_id', $row->pesanan_id)->update(['no_antrian' => $row->no_antrian -1]);
                 }
             }
             $update = DB::table('tb_pesanan')->where('pesanan_id', $pesanan_id)->update($data);
