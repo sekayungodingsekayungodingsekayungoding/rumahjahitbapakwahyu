@@ -147,6 +147,13 @@ class PesananController extends Controller
                 'status_pesanan'       => $status_pesanan,
                 'tgl_kirim'            => $tgl_kirim,
             ];
+            if($status_pesanan == 1){
+                $data['no_antrian'] = 0;
+                $cek = Pesanan::where('pesanan_id', '>', $pesanan_id)->get();
+                foreach($cek as $row){
+                    Pesanan::where('pesanan_id', $row->pesanan_id)->update(['no_antrian' => $row->no_antrian -1]);
+                }
+            }
             $update = DB::table('tb_pesanan')->where('pesanan_id', $pesanan_id)->update($data);
         if($update){
             return Redirect::back()->with(['success' => 'Data Berhasil Di Update!!']);
