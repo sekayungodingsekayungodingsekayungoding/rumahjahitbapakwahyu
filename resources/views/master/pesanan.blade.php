@@ -113,7 +113,7 @@
                                                             @csrf
                                                             @if($k->pesanan_id == $cek_antrian->pesanan_id || $notNull->cekNotNull($k->pesanan_id))
                                                             @if ($k->status_pesanan == 1 & $k->tgl_kirim != null)
-                                                            <button class="badge bg-secondary">Selesai</button>
+                                                            <button type="button" class="badge bg-secondary">Selesai</button>
                                                             @else
                                                             <a class="btn btn-danger btn-sm btnEdit">
                                                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-eraser" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
