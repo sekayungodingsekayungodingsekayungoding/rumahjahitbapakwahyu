@@ -140,7 +140,7 @@
                                                                 <path d="M18 13.3l-6.3 -6.3"></path>
                                                                 </svg>Hapus
                                                                 </a>
-                                                                <a href="#" class="btn btn-warning btn-sm" onclick="Swal.fire('Warning!', 'Ada antrian sebelumnya yang belum di proses', 'warning');">
+                                                                <a href="#" class="btn btn-warning btn-sm" onclick="alert_set()">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                                                 <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"></path>
@@ -260,6 +260,16 @@
             });
 
         });
+        function alert_set()
+        {
+            Swal.fire({
+              position: "center",
+              icon: "warning",
+              title: "Ada antrian sebelumnya yang belum di proses",
+              showConfirmButton: false,
+              timer: 1500
+            });
+        }
 
 
     </script>
