@@ -267,7 +267,7 @@
               icon: "warning",
               title: "Ada antrian sebelumnya yang belum di proses",
               showConfirmButton: false,
-              timer: 1500
+              timer: 10000
             });
         }
 
